@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>spcebar</title>
+	<style>
+		.container {
+			margin-top: 30vh;
+			text-align: center;
+			font-family: Tahoma;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<span>spcebar</span>
+		<span id="dash">|</span>
+	</div>
+	<div class="container">
+		coming soon..
+	</div>
+
+	<script
+	  src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+	  integrity="sha256-4+XzXVhsDmqanXGHaHvgh1gMQKX40OUvDEBTu8JcmNs="
+	  crossorigin="anonymous"></script>
+	<script>
+		setInterval(() => {
+			$('#dash').css('opacity', 0)
+		}, 500);
+		setInterval(() => {
+			$('#dash').css('opacity', 1)
+		}, 1000);
+	</script>
+</body>
+</html>
