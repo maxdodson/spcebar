@@ -9,9 +9,33 @@
 			text-align: center;
 			font-family: Avenir, Tahoma, 'Trebuchet MS', sans-serif;
 		}
+		#logo {
+			height: 95vh;
+			text-align: center;
+			display: flex;
+		}
+		#main {
+			font-size: 18px;
+		}
+		.link {
+			margin-top: 30px;
+			text-align: center;
+			font-family: Avenir, Tahoma, 'Trebuchet MS', sans-serif;
+		}
+		.img {
+			width: 75px;
+			height: 75px;
+			margin: auto auto;
+			-webkit-animation: bob 2s infinite;
+			animation: bob 2s infinite;
+		}
+		#lead {
+			font-size: 22px;
+			font-weight: 600;
+		}
 		#dash {
 			-webkit-animation: blink 1s infinite;
-			animation: blink 1s infinite
+			animation: blink 1s infinite;
 		}
 		@keyframes blink {
 			0%, 50% {
@@ -21,18 +45,52 @@
 				opacity: 0;
 			}
 		}
+		@keyframes bob {
+			0% {
+				width: 75px;
+				height: 75px;
+			}
+			50% {
+				width: 65px;
+				height: 65px;
+			}
+		}
 	</style>
 </head>
 <body>
-	<div class="container">
-		<span>spcebar</span>
-		<span id="dash">|</span>
+	<div id="logo">
+		<img src="/Users/mdodson/Downloads/spcebar_logo.png" class="img">
 	</div>
-	<div class="container">
-		coming soon...
+	<div id="main" style="display: none">
+		<div class="container" id="lead">
+			<span>spcebar</span>
+			<span id="dash">|</span>
+		</div>
+		<div class="container">
+			coming soon...
+		</div>
+		<div class="link">
+			<a href="mailto:info@spcebar.co" style="color: cornflowerblue">info@spcebar.co</a>
+		</div>
 	</div>
-	<div style="margin-top: 30px; text-align: center; font-family: Avenir, Tahoma, 'Trebuchet MS', sans-serif">
-		<a href="mailto:info@spcebar.co" style="color: cornflowerblue">info@spcebar.co</a>
-	</div>
+	
+	<script>
+		let logo = document.getElementById('logo');
+		let main = document.getElementById('main');
+		
+		opacity = 1;
+		logo.style.opacity = opacity;
+		function fade() {
+			if (opacity > 0) {
+				opacity -= .1;
+				logo.style.opacity = opacity;
+				setTimeout(fade, 20);
+			} else {
+				logo.style.display = "none";
+				main.style.display = "block";
+			}
+		}
+		setTimeout(fade, 1500);
+	</script>
 </body>
 </html>
